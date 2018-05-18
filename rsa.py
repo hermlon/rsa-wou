@@ -1,8 +1,14 @@
 import secrets
+import math
 
 def find_next_prime(random_number):
     """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
     
+    # Hinweise:
+    # math.sqrt(a)      Quadratwurzel von a
+    # eine_liste = []       eine leere Liste
+    # eine_liste.append(a)    fügt a zur Liste hinzu
+    # a % b     Rest von a / b, wenn 0 => b teilt a
     pass
 
 def euklid_ext(a, b):
