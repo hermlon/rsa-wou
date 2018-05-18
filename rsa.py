@@ -8,6 +8,12 @@ def find_next_prime(random_number):
 def euklid_ext(a, b):
     """Gibt für Primzahlen a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
     
+    # Hinweise:
+    # Zuerst den einfachen euklidischen Algorithmus implementieren
+    # Der erweiterte kann gleichzeitig mit dem einfachen ausgeführt werden, d. h. es wird nicht wie im Unterricht am Ende rückwärts ausgeführt, da man sonst alle Zahlen zwischenspeichern müsste
+    # a % b     Rest bei Division a durch b
+    # a // b        Ganzzahliges Ergebnis der Division a durch b, abgerundet
+
     pass
 
 def generate_key(p, q):
