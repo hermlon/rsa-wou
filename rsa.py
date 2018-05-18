@@ -13,6 +13,8 @@ def euklid_ext(a, b):
 def generate_key(p, q):
     """Diese Funktion generiert aus den Primzahlen p und q den privaten Schlüssel (d, n) und den öffentlichen Schlüssel (e, n) und gibt diese als Tupel (priv_key, pub_key) also ((d, n), (e, n)) zurück"""
     
+    # Hinweise
+    # kein Plan...
     pass
 
 def encrypt(pub_key, message):
