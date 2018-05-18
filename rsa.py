@@ -17,6 +17,18 @@ def generate_key(p, q):
 
 def encrypt(pub_key, message):
     """Diese Funktion verschlüsselt die Nachricht message nachdem jedes Zeichen in eine Dezimalzahl (UTF-8 Unicode) umgewandelt wurde und gibt die verschlüsselte Zahl für jeden Buchstaben als Liste cipher zurück"""
+    
+    # Hinweise:
+    # for zeichen in message:   Für jedes Zeichen aus message mache:
+    # ord(zeichen)  Zahl, die das Zeichen im Unicode repräsentiert
+    # chr(zahl)     Zeichen, das die Zahl im Unicode repräsentiert
+    # ein_string += ein_zeichen     fügt Zeichen am Ende des strings hinzu
+    # a ** b        a hoch b
+    # a % b     Rest bei Division a durch b
+    # eine_liste = []   Erstellt leere Liste
+    # eine_liste.append(a)      fügt a an eine_liste an
+    # mein_tupel = (3, 45)      erzeugt ein Tupel
+    # mein_tupel[0]     gibt den ersten Wert, also 3 zurück
 
     pass
 
