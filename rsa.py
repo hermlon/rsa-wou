@@ -12,7 +12,14 @@ def euklid_ext(a, b):
 
 def generate_key(p, q):
     """Diese Funktion generiert aus den Primzahlen p und q den privaten Schlüssel (d, n) und den öffentlichen Schlüssel (e, n) und gibt diese als Tupel (priv_key, pub_key) also ((d, n), (e, n)) zurück"""
-    
+    n = p * q
+    euler_n = (p-1)*(q-1)
+    e = 7
+    """euklid_ext(euler_n, e)"""
+    d = 55
+    priv_key = (d, n)
+    pub_key = (e, n)
+    return (priv_key, pub_key)
     # Hinweise
     # kein Plan...
     pass
@@ -44,3 +51,4 @@ pub_key = keys[1]
 cipher = encrypt(pub_key, 'Test')
 print(decrypt(priv_key, cipher))
 """
+print(generate_key(13,17))
