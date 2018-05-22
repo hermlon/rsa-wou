@@ -1,4 +1,4 @@
-import secrets
+#import secrets
 
 def find_next_prime(random_number):
     """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
@@ -17,25 +17,25 @@ def generate_key(p, q):
 
 def encrypt(pub_key, message):
     """Diese Funktion verschlüsselt die Nachricht message nachdem jedes Zeichen in eine Dezimalzahl (UTF-8 Unicode) umgewandelt wurde und gibt die verschlüsselte Zahl für jeden Buchstaben als Liste cipher zurück"""
-    
-    # Hinweise:
-    # for zeichen in message:   Für jedes Zeichen aus message mache:
-    # ord(zeichen)  Zahl, die das Zeichen im Unicode repräsentiert
-    # chr(zahl)     Zeichen, das die Zahl im Unicode repräsentiert
-    # ein_string += ein_zeichen     fügt Zeichen am Ende des strings hinzu
-    # a ** b        a hoch b
-    # a % b     Rest bei Division a durch b
-    # eine_liste = []   Erstellt leere Liste
-    # eine_liste.append(a)      fügt a an eine_liste an
-    # mein_tupel = (3, 45)      erzeugt ein Tupel
-    # mein_tupel[0]     gibt den ersten Wert, also 3 zurück
+    e = pub_key[0]
+    n = pub_key[1]
+    cipher = []
+    for character in message:
+        m = ord(character)
+        c = m ** e % n
+        cipher.append(c)
 
-    pass
+    return cipher
 
 def decrypt(priv_key, cipher):
     """Diese Funktion entschlüsselt die Liste c, welche den UTF-8 Unicode Dezimalwert für jedes Zeichen enthält und gibt die Nachricht als String message zurück"""
-    pass
-
+    d = priv_key[0]
+    n = priv_key[1]
+    message = ''
+    for c in cipher:
+        m = c ** d % n
+        message += chr(m)
+    return message
 """
 # Hauptprogramm
 
@@ -50,7 +50,6 @@ keys = generate_key(p, q)
 
 priv_key = keys[0]
 pub_key = keys[1]
-
-cipher = encrypt(pub_key, 'Test')
-print(decrypt(priv_key, cipher))
 """
+cipher = encrypt((7, 221), 'Test_1')
+print(decrypt((55, 221), cipher))
