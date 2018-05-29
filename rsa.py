@@ -1,4 +1,4 @@
-#import secrets
+import secrets
 
 def find_next_prime(random_number):
     """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
@@ -12,8 +12,14 @@ def euklid_ext(a, b):
 
 def generate_key(p, q):
     """Diese Funktion generiert aus den Primzahlen p und q den privaten Schlüssel (d, n) und den öffentlichen Schlüssel (e, n) und gibt diese als Tupel (priv_key, pub_key) also ((d, n), (e, n)) zurück"""
-    
-    pass
+    n = p * q
+    euler_n = (p-1)*(q-1)
+    e = 7
+    """euklid_ext(euler_n, e)"""
+    d = 55
+    priv_key = (d, n)
+    pub_key = (e, n)
+    return (priv_key, pub_key)
 
 def encrypt(pub_key, message):
     """Diese Funktion verschlüsselt die Nachricht message nachdem jedes Zeichen in eine Dezimalzahl (UTF-8 Unicode) umgewandelt wurde und gibt die verschlüsselte Zahl für jeden Buchstaben als Liste cipher zurück"""
@@ -46,10 +52,12 @@ keylength = 10 * 100
 p = find_next_prime(secrets.randbelow(keylength))
 q = find_next_prime(secrets.randbelow(keylength))
 
-keys = generate_key(p, q)
+"""
+keys = generate_key(13, 17)
 
 priv_key = keys[0]
 pub_key = keys[1]
-"""
-cipher = encrypt((7, 221), 'Test_1')
-print(decrypt((55, 221), cipher))
+
+
+cipher = encrypt(pub_key, 'Test_1')
+print(decrypt(priv_key, cipher))
