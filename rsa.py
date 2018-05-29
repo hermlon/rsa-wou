@@ -6,16 +6,27 @@ def find_next_prime(random_number):
     pass
 
 def euklid_ext(a, b):
-    """Gibt für Primzahlen a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
-    
+    """Gibt für a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
+    x = 0
+    y = 0
     # Hinweise:
     # Zuerst den einfachen euklidischen Algorithmus implementieren
     # Der erweiterte kann gleichzeitig mit dem einfachen ausgeführt werden, d. h. es wird nicht wie im Unterricht am Ende rückwärts ausgeführt, da man sonst alle Zahlen zwischenspeichern müsste
     # a % b     Rest bei Division a durch b
     # a // b        Ganzzahliges Ergebnis der Division a durch b, abgerundet
-
-    pass
-
+    while a != 1:
+        c = a // b      
+        d = a % b
+        print(str(a) + ' = ' + str(c) + ' * ' + str(b) + ' mod ' + str(d))
+        
+        x = x + 1
+        y = y + b
+        print(str(x) + '       ' + str(y))
+        a = b
+        b = d
+        
+        
+        
 def generate_key(p, q):
     """Diese Funktion generiert aus den Primzahlen p und q den privaten Schlüssel (d, n) und den öffentlichen Schlüssel (e, n) und gibt diese als Tupel (priv_key, pub_key) also ((d, n), (e, n)) zurück"""
     
@@ -48,3 +59,4 @@ pub_key = keys[1]
 cipher = encrypt(pub_key, 'Test')
 print(decrypt(priv_key, cipher))
 """
+euklid_ext(121,18)
