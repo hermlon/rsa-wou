@@ -1,7 +1,40 @@
 import secrets
 import math
 
+def find_all_primes(random_number):
+    Prim = [2]
+    i= 0
+    a=3
+    while a < math.sqrt(random_number):
+        f = a % Prim[i]
+        if f == 0:
+            a = a+1
+            i=0
+        else:
+            if i == len(Prim)-1:
+                Prim.append(a)
+                a=a+1
+                i = 0
+            else:
+                i = i+1
+    return Prim
+                
 def find_next_prime(random_number):
+    
+    while True:
+        g = False
+        Prim= find_all_primes(random_number)
+        for n in Prim:
+            if random_number % n == 0:
+                g = True
+        if g:
+            random_number=random_number+1
+            Prim= find_all_primes(random_number)
+        else:
+                
+            return random_number
+            
+        
     """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
     
     # Hinweise:
@@ -48,3 +81,8 @@ pub_key = keys[1]
 cipher = encrypt(pub_key, 'Test')
 print(decrypt(priv_key, cipher))
 """
+Prim=[]
+Prim.append(2)
+
+print(find_next_prime(1060))
+#print(find_all_primes(60))
