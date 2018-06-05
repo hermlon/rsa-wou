@@ -20,6 +20,7 @@ def find_all_primes(random_number):
     return Prim
                 
 def find_next_prime(random_number):
+    """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
     
     while True:
         g = False
@@ -33,16 +34,6 @@ def find_next_prime(random_number):
         else:
                 
             return random_number
-            
-        
-    """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
-    
-    # Hinweise:
-    # math.sqrt(a)      Quadratwurzel von a
-    # eine_liste = []       eine leere Liste
-    # eine_liste.append(a)    fügt a zur Liste hinzu
-    # a % b     Rest von a / b, wenn 0 => b teilt a
-    pass
 
 def euklid_ext(a, b):
     """Gibt für Primzahlen a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
@@ -81,8 +72,3 @@ pub_key = keys[1]
 cipher = encrypt(pub_key, 'Test')
 print(decrypt(priv_key, cipher))
 """
-Prim=[]
-Prim.append(2)
-
-print(find_next_prime(1060))
-#print(find_all_primes(60))
