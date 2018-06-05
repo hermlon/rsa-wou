@@ -1,9 +1,39 @@
 import secrets
+import math
 
+def find_all_primes(random_number):
+    Prim = [2]
+    i= 0
+    a=3
+    while a < math.sqrt(random_number):
+        f = a % Prim[i]
+        if f == 0:
+            a = a+1
+            i=0
+        else:
+            if i == len(Prim)-1:
+                Prim.append(a)
+                a=a+1
+                i = 0
+            else:
+                i = i+1
+    return Prim
+                
 def find_next_prime(random_number):
     """Diese Funktion gibt die nächst größere Primzahl zu einer Zahl zurück"""
     
-    pass
+    while True:
+        g = False
+        Prim= find_all_primes(random_number)
+        for n in Prim:
+            if random_number % n == 0:
+                g = True
+        if g:
+            random_number=random_number+1
+            Prim= find_all_primes(random_number)
+        else:
+                
+            return random_number
 
 def euklid_ext(a, b):
     """Gibt für Primzahlen a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
