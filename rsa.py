@@ -35,6 +35,8 @@ def find_next_prime(random_number):
             return random_number
 
 def euklid_ext(a, b):
+    u_a = a
+    u_b = b
     """Gibt für Primzahlen a und b mit ggT(a, b) = 1 das Tupel (x, y) zurück, für die a * x + b * y = 1 gilt"""
     cnt_a = 0
     cnt_b = 1
@@ -55,8 +57,16 @@ def euklid_ext(a, b):
         
         a = b
         b = rest
-    # print('{} , {}'.format(old_cnt_a, old_cnt_b))
-    return old_cnt_b
+    print('{} , {}'.format(old_cnt_a, old_cnt_b))
+    
+    if u_a*old_cnt_a-u_b*old_cnt_b > 0:
+        return old_cnt_b % u_b
+    else:
+        print('soos')
+        return old_cnt_b
+    print(u_a*old_cnt_a-u_b*old_cnt_b)
+    print(u_b*old_cnt_b-u_a*old_cnt_a)
+    
 
 def generate_key(p, q):
     """Diese Funktion generiert aus den Primzahlen p und q den privaten Schlüssel (d, n) und den öffentlichen Schlüssel (e, n) und gibt diese als Tupel (priv_key, pub_key) also ((d, n), (e, n)) zurück"""
@@ -101,7 +111,7 @@ q = find_next_prime(secrets.randbelow(keylength))
 
 print('{}, {}'.format(p, q))
 p = 31
-q = 13
+q = 17
 
 keys = generate_key(p, q)
 
