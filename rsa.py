@@ -3,7 +3,6 @@ import math
 import logging
 import sys
 
-logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 def find_primes(start, end, known_primes):
     n = start
@@ -148,16 +147,19 @@ def random_key(keylength):
     return generate_key(p, q)
 
 
-# Hauptprogramm
-
-# zufälliges Schlüsselpaar generieren
-keypair = random_key(300)
-
-priv_key = keypair[0]
-pub_key = keypair[1]
-
-# verschlüsseln:
-cipher = encrypt(pub_key, 'Eine Testnachricht mit Einhorn und schwebenden Businessman! \U0001F984 \U0001F574')
-
-# entschlüsseln
-print(decrypt(priv_key, cipher))
+if __name__ == '__main__':
+	# Hauptprogramm
+	logging.basicConfig(stream=sys.stderr, level=logdging.DEBUG)
+	
+	# zufälliges Schlüsselpaar generieren
+	keypair = random_key(300)
+	
+	priv_key = keypair[0]
+	pub_key = keypair[1]
+	
+	# verschlüsseln:
+	cipher = encrypt(pub_key, 'Eine Testnachricht mit Einhorn und schwebenden Businessman! \U0001F984 \U0001F574')
+	
+	# entschlüsseln
+	print(decrypt(priv_key, cipher))
+	
