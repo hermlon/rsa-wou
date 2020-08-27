@@ -149,7 +149,7 @@ def random_key(keylength):
 
 if __name__ == '__main__':
 	# Hauptprogramm
-	logging.basicConfig(stream=sys.stderr, level=logdging.DEBUG)
+	logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 	
 	# zufälliges Schlüsselpaar generieren
 	keypair = random_key(300)
